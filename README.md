@@ -5,7 +5,7 @@ This is the Docker image used in the Github Actions environment for [texas-2036/
 ## Usage
 
 If you need to add a new R package to the environment, add the package name to the [install2.r](
-https://github.com/hyphaebeast/tidy-r/blob/master/Dockerfile#L42) command in the Dockerfile.
+https://github.com/hyphaebeast/tidy-r/blob/master/Dockerfile#L42) command in the Dockerfile (don't forget the line continuation backslash).
 
 
 
@@ -28,7 +28,7 @@ https://github.com/hyphaebeast/tidy-r/blob/master/Dockerfile#L42) command in the
      openssl \
      vroom \
      aws.s3 \
-     httr
+     httr \
 ➕   [new-package-name]
 
      ...
