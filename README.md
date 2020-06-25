@@ -10,9 +10,11 @@ https://github.com/hyphaebeast/tidy-r/blob/master/Dockerfile#L42) command in the
 
 
 ```dockerfile
+    ...
+    
     #libsasl2-dev \
     && update-ca-certificates \
-👉   && install2.r --skipinstalled --ncpus 2 --error \
+    && install2.r --skipinstalled --ncpus 2 --error \ 👈
      --deps TRUE \
      dplyr \
      tidyr \
@@ -27,5 +29,7 @@ https://github.com/hyphaebeast/tidy-r/blob/master/Dockerfile#L42) command in the
      vroom \
      aws.s3 \
      httr
-👉   [new-package-name]
+➕   [new-package-name]
+
+     ...
 ```
