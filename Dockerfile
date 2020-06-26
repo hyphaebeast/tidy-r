@@ -29,17 +29,11 @@ RUN apt-get update -qq && \
     nano \
     bison \
     default-jre \
-    libxml2-dev \
-    #libcairo2-dev \
-    #libsqlite-dev \
-    #libmariadbd-dev \
-    #libmariadbclient-dev \
-    #libpq-dev \
-    #libssh2-1-dev \
-    #unixodbc-dev \
-    #libsasl2-dev \
-    && update-ca-certificates \
-    && install2.r --skipinstalled --ncpus 2 --error \
+    libxml2-dev
+
+RUN update-ca-certificates 
+
+RUN install2.r --skipinstalled --ncpus 2 --error \
      --deps TRUE \
      dplyr \
      tidyr \
