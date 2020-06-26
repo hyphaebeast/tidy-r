@@ -60,3 +60,4 @@ COPY dshs.crt /usr/local/share/ca-certificates/dshs.crt
 RUN update-ca-certificates
 
 #RUN sudo curl http://curl.haxx.se/ca/cacert.pem --output /etc/ssl/certs/cacert.pem
+ENTRYPOINT ["/bin/sh", "-c", "bash"] 
