@@ -1,4 +1,4 @@
-FROM rocker/r-ubuntu:18.04
+FROM rocker/r-ubuntu:20.04
 
 RUN apt-get update -qq && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
