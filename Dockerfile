@@ -1,5 +1,7 @@
 FROM rocker/r-ubuntu:20.04
 
+RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+
 RUN apt-get update -qq && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     build-essential \
@@ -32,6 +34,12 @@ RUN apt-get update -qq && \
     libxml2-dev \
     pandoc
 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    libudunits2-dev \
+    libgdal-dev \
+    libgeos-dev \
+    libproj-dev 
+
 RUN update-ca-certificates 
 
 RUN install2.r --skipinstalled --ncpus 2 --error \
@@ -54,8 +62,10 @@ RUN install2.r --skipinstalled --ncpus 2 --error \
      highcharter \
      gt \
      leaflet \
-     leaflet.extras \
-     sf
+     leaflet.extras
+
+RUN install2.r --skipinstalled --ncpus 2 --error \
+     --deps TRUE sf
 
 RUN R --no-save -e 'blogdown::install_hugo(force = TRUE)'
       
