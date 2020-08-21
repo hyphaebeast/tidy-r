@@ -49,7 +49,13 @@ RUN install2.r --skipinstalled --ncpus 2 --error \
      vroom \
      aws.s3 \
      httr \
-     blogdown
+     blogdown \
+     colorspace \
+     highcharter \
+     gt \
+     leaflet \
+     leaflet.extras \
+     sf
 
 RUN R --no-save -e 'blogdown::install_hugo(force = TRUE)'
       
