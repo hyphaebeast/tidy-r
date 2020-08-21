@@ -29,7 +29,8 @@ RUN apt-get update -qq && \
     nano \
     bison \
     default-jre \
-    libxml2-dev
+    libxml2-dev \
+    pandoc
 
 RUN update-ca-certificates 
 
@@ -47,7 +48,10 @@ RUN install2.r --skipinstalled --ncpus 2 --error \
      openssl \
      vroom \
      aws.s3 \
-     httr
+     httr \
+     blogdown
+
+RUN R --no-save -e 'blogdown::install_hugo(force = TRUE)'
       
 RUN mkdir -p /usr/local/share/ca-certificates
 COPY dshs.crt /usr/local/share/ca-certificates/dshs.crt
