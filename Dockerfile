@@ -44,9 +44,7 @@ RUN update-ca-certificates
 
 RUN install2.r --skipinstalled --ncpus 2 --error \
      --deps TRUE \
-     dplyr \
-     tidyr \
-     readr \
+     tidyverse \
      janitor \
      glue \
      lubridate \
@@ -62,10 +60,9 @@ RUN install2.r --skipinstalled --ncpus 2 --error \
      highcharter \
      gt \
      leaflet \
-     leaflet.extras
-
-RUN install2.r --skipinstalled --ncpus 2 --error \
-     --deps TRUE sf
+     leaflet.extras \
+     sf \
+     uuid
 
 RUN R --no-save -e 'blogdown::install_hugo(force = TRUE)'
       
