@@ -68,6 +68,7 @@ RUN R --no-save -e 'blogdown::install_hugo(force = TRUE)'
       
 RUN mkdir -p /usr/local/share/ca-certificates
 COPY dshs.crt /usr/local/share/ca-certificates/dshs.crt
+COPY twc.crt /usr/local/share/ca-certificates/twc.crt
 RUN update-ca-certificates
 
 #RUN sudo curl http://curl.haxx.se/ca/cacert.pem --output /etc/ssl/certs/cacert.pem
